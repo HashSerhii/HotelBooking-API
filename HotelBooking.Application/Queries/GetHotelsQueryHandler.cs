@@ -16,7 +16,12 @@ public class GetHotelsQueryHandler : IQueryHandler<GetHotelsQuery, List<HotelDto
     
     public async Task<List<HotelDto>> ExecuteAsync(GetHotelsQuery query, CancellationToken ct)
     {
-        var hotels = await _repository.GetAllAsync(null,h => h.Rooms);
+        System.Linq.Expressions.Expression<Func<Hotel, bool>>? filter = 
+            string.IsNullOrWhiteSpace(query.SearchTerm) 
+                ? null 
+                : h => h.Name.Contains(query.SearchTerm) || h.Address.Contains(query.SearchTerm);
+
+        var hotels = await _repository.GetAllAsync(filter, h => h.Rooms);
         
         var dtos = hotels.Select(h => new HotelDto
         {
