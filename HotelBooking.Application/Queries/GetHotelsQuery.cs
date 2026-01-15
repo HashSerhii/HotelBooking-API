@@ -2,4 +2,4 @@ using HotelBooking.Application.DTOs;
 
 namespace HotelBooking.Application.Queries;
 
-public record GetHotelsQuery;
+public record GetHotelsQuery(string? SearchTerm = null);

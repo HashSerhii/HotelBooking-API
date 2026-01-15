@@ -34,9 +34,10 @@ public static class HotelEndpoints
     
     private static async Task<IResult> GetAllHotels(
         IMediator mediator,
-        CancellationToken ct)
+        CancellationToken ct,
+        string? searchTerm = null)
     {
-        var query = new GetHotelsQuery();
+        var query = new GetHotelsQuery(searchTerm);
         
         var hotels = await mediator.ExecuteQuery<GetHotelsQuery, List<HotelDto>>(query, ct);
         

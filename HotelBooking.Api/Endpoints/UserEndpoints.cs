@@ -1,6 +1,5 @@
 using HotelBooking.Application.DTOs;
 using HotelBooking.Application.Interfaces;
-using Microsoft.AspNetCore.Mvc; // Для атрибутів Swagger (опціонально)
 
 namespace HotelBooking.Api.Endpoints;
 
