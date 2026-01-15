@@ -1,7 +1,6 @@
 using System.Security.Claims;
 using HotelBooking.Application.Commands;
 using HotelBooking.Application.Mediator.Interfaces;
-using Microsoft.AspNetCore.Mvc; // Для [FromBody], хоча в Minimal API він часто не обов'язковий
 
 namespace HotelBooking.Api.Endpoints;
 
